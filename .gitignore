@@ -1,0 +1,3 @@
+server/black.exe
+server/uvicorn.exe
+server/__pycache__/
