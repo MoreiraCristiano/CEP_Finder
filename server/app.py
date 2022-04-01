@@ -1,6 +1,6 @@
 import requests
 import uvicorn
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -19,21 +19,24 @@ async def home(request: Request):
 @app.get("/cep", response_class=HTMLResponse)
 async def find_cep(request: Request, cep: int):
     url = f"https://cep.awesomeapi.com.br/json/{cep}"
-
     res = requests.get(url)
-    res = res.json()
+    parsed_res = res.json()
 
-    address = res["address"]
-    district = res["district"]
-    city = res["city"]
+    if (res.status_code != 200):
+        return templates.TemplateResponse("home.html", {"request": request})
+
+    address = parsed_res["address"]
+    district = parsed_res["district"]
+    city = parsed_res["city"]
 
     return templates.TemplateResponse(
-        "searchResult.html", {
-            "request": request, 
-            "address": address, 
+        "searchResult.html",
+        {
+            "request": request,
+            "address": address,
             "city": city,
-            "district": district,            
-        }
+            "district": district,
+        },
     )
 
 
