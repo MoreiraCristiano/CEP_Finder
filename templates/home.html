@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="{{ url_for('static', path='css/home.css') }}" rel="stylesheet">
+    <link
+      href="{{ url_for('static', path='css/home.css') }}"
+      rel="stylesheet"
+    />
     <title>Teste Inventario</title>
   </head>
   <body>
@@ -12,9 +15,16 @@
       <form class="c-form" action="/cep" method="get">
         <div class="c-inputs">
           <p id="title">CEP Finder</p>
-          <input class="form-input" type="number" name="cep" />
-          <input class="form-input" type="submit"></button>
-        </div>  
+          <input
+            class="form-input"
+            id="input-cep"
+            type="number"
+            name="cep"
+            placeholder="CEP"
+            autocomplete="off"
+          />
+          <button class="form-input" id="bt-send">Enviar</button>
+        </div>
       </form>
     </div>
   </body>

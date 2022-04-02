@@ -1,11 +1,14 @@
 html {
   font-size: 62.5%;
+  --bg-color: #22272e;
+  --title-color: #fff;
 }
 
 body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--bg-color);
 }
 
 .container {
@@ -14,7 +17,6 @@ body {
   justify-content: center;
   height: 50rem;
   width: 40rem;
-  border: 0.1rem solid;
 }
 
 .c-form {
@@ -33,12 +35,33 @@ body {
   align-items: center;
 }
 
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .form-input {
   margin: 0.5rem;
+  outline: none;
+}
+
+#input-cep {
+  width: 15rem;
+  height: 2.5rem;
+}
+
+#bt-send {
+  width: 10rem;
+  outline: none;
 }
 
 #title {
   font-size: 2rem;
+  color: var(--title-color);
   font-family: sans-serif;
-  margin: 0;
 }

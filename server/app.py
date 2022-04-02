@@ -21,7 +21,7 @@ async def find_cep(request: Request, cep: int):
     url = f"https://cep.awesomeapi.com.br/json/{cep}"
     res = requests.get(url)
     parsed_res = res.json()
-
+    
     if (res.status_code != 200):
         return templates.TemplateResponse("home.html", {"request": request})
 
