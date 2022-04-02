@@ -39,10 +39,6 @@ body {
 
 #title {
   font-size: 2rem;
-  margin: 0;
-}
-
-.address {
-  font-size: 2rem;
   font-family: sans-serif;
+  margin: 0;
 }
